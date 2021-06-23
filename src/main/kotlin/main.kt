@@ -1,12 +1,12 @@
 fun main() {
-    var seconds = 250
+    val seconds = 2500
     val result = agoToText(seconds);
     println("был(а) в сети $result");
 }
 
 fun agoToText(seconds: Int): String {
-    var minutes = seconds/60
-    var hours = seconds/3600
+    val minutes = seconds/60
+    val hours = seconds/3600
 
     return when (seconds) {
         in 0..60 -> "только что" //от 0 до 60
@@ -18,20 +18,16 @@ fun agoToText(seconds: Int): String {
     }
 }
 
-fun hoursConverter(seconds: Int) : String{
-    return when {
+fun hoursConverter(seconds: Int) : String = when {
         (seconds/3600)%100 in 11..14 -> "часов"
         (seconds/3600)%10 == 1 -> "час"
         (seconds/3600)%10 in 2..4 -> "часа"
         else -> "часов"
     }
-}
 
-fun minutesConverter(seconds: Int): String{
-    return when {
+fun minutesConverter(seconds: Int): String = when {
         (seconds/60)%100 in 11..14 -> "минут"
         (seconds/60)%10 == 1 -> "минуту"
         (seconds/60)%10 in 2..4 -> "минуты"
         else -> "минут"
     }
-}
